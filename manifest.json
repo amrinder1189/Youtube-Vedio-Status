@@ -1,0 +1,20 @@
+{
+  "name": "YouTube Speed Toolbar",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Sidebar to control video speed on YouTube.",
+  "author": "https://github.com/melchisedech333",
+  "icons": {
+    "128": "128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["background.js"],
+      "css": ["time.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["tabs", "activeTab"],
+  "host_permissions": ["http://*.youtube.com/"]
+}
