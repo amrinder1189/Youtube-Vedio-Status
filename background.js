@@ -29,40 +29,74 @@ let timeleftVedio;
 // --------------
 // making div elements
 // --------------
+var tetdiv = document.getElementsByClassName("ytp-time-display");
 
-let testing = document.createElement("span");
-let tetdiv = document.getElementsByClassName("ytp-time-display");
+// for the COMPLETE
+let testingdiv = document.createElement("div");
+testingdiv.className = "timeLeftDiv";
+let completedLeftspan = document.createElement("span");
+completedLeftspan.className = "bolder ";
+testingdiv.appendChild(completedLeftspan);
+let cptag = document.createElement("span");
+cptag.className = "ptag ";
+cptag.innerHTML = "Completed";
+testingdiv.appendChild(cptag);
 
-let timeLeftDiv = document.createElement("span");
-let ptag = document.createElement("p");
-ptag.innerHTML = "Time Left Vedio";
+// For The Time LEFT
+let timeLeftDiv = document.createElement("div");
+timeLeftDiv.className = "timeLeftDiv";
+let timeLeftspan = document.createElement("span");
+timeLeftDiv.appendChild(timeLeftspan);
+let ptag = document.createElement("span");
+ptag.className = "ptag";
+ptag.innerHTML = "Time Left ";
+timeLeftDiv.appendChild(ptag);
 
-// timeLeftDiv[0].appendChild(ptag);
-
-if (tetdiv.length === 1) {
-  console.log("tetdic--->", tetdiv);
-  tetdiv[0].appendChild(testing);
-  tetdiv[0].insertAdjacentElement("afterend", timeLeftDiv);
+function findgtarget() {
+  if (tetdiv.length === 1) {
+    console.log("appending divs --->");
+    tetdiv[0].insertAdjacentElement("afterend", testingdiv);
+    tetdiv[0].insertAdjacentElement("afterend", timeLeftDiv);
+  }
 }
-testing.className = "test";
+
+// testing.className = "test";
+
+// MAIN FUNCTION
+// MAIN FUNCTION
+// MAIN FUNCTION
 
 var titleCheck = setInterval(() => {
-  console.log("waheguru ji");
   videoElement = document.querySelector("video");
+  helpingdiv = document.getElementsByClassName("bolder");
+  console.log("helpingdiv", helpingdiv);
 
   if (videoElement?.duration > 0) {
-    // clearInterval(titleCheck);
-
+    // console.log("waheguru ji 2");
     getElements();
-    testing.innerText = " " + Math.floor(percentageCompleted) + "%" + "  ";
+    completedLeftspan.innerText =
+      " " + Math.floor(percentageCompleted) + "%" + "  ";
+    timeLeftspan.innerText = " " + timeleftVedio;
+  }
 
-    timeLeftDiv.innerText = " " + timeleftVedio;
+  var findingtarget = setInterval(() => {
+    console.log("appending interval --->");
 
-    // setInterval(() => {
-    //   updateCurrentTime();
-    // }, 500);
+    findgtarget();
+    console.log("waheguru ji kirpa kro");
+  }, 1000);
+
+  if (videoElement?.duration > 0) {
+    console.log("clearing interval --->");
+    if (helpingdiv?.length === 1) {
+      clearInterval(findingtarget);
+    }
   }
 }, 1000);
+
+// MAIN FUNCTION
+// MAIN FUNCTION
+// MAIN FUNCTION
 
 function getPlaybackSpeed() {
   playbackspeedvalue = document.getElementsByClassName(

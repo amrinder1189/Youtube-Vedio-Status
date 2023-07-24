@@ -30,5 +30,35 @@
 }
 
 .ytp-time-display {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
+}
+
+.ptag {
+  font-size: 8px;
+  font-weight: bold;
+  color: white !important;
+  margin-top: 2px;
+}
+
+.timeLeftDiv {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-left: 5px;
+  align-items: center;
+}
+
+.timeLeftDiv :first-child {
+  margin-bottom: 2px;
+}
+
+.timeLeftDiv span {
+  padding: 0px;
+  margin: 0px;
+  height: 10px;
+  color: #00ff00;
+}
+
+.bolder {
+  font-weight: bolder;
 }
